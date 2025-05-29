@@ -1,0 +1,96 @@
+.breadcrumb-container {
+    margin: 20px 0;
+}
+
+.breadcrumb {
+    list-style: none;
+    padding: 0;
+}
+
+.breadcrumb li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumb li a {
+    color: #6c5dd4;
+    text-decoration: none;
+}
+
+.favorites-page h2 {
+    font-size: 24px;
+    color: #7a35c5;
+    margin-bottom: 20px;
+}
+
+.favorites-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for better separation */
+}
+
+.favorites-table table {
+    width: 100%;
+}
+
+.favorites-table th,
+.favorites-table td {
+    padding: 15px; /* Increase padding for more space */
+    text-align: center; /* Center-align content */
+    vertical-align: middle; /* Center-align vertically for better visuals */
+    border-bottom: 1px solid #ddd;
+}
+
+.favorites-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #6c5dd4;
+    text-transform: uppercase;
+}
+
+.favorites-table .data td img {
+    width: 70px; /* Increased size for better visibility */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for image */
+}
+
+.favorites-table .data td button {
+    border: none;
+    background: none;
+    color: #7a35c5;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.favorites-table .data td button:hover {
+    color: #6c5dd4;
+}
+
+/* Add a striped background effect for rows */
+.favorites-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.favorites-table tr:hover {
+    background-color: #f0f4ff; /* Light hover effect for rows */
+}
+
+.alert {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #7a35c5;
+    color: #fff;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+

@@ -1,0 +1,353 @@
+.title_seller {
+    font-size: 24px;
+    color: var(--purple);
+    margin-bottom: 20px;
+    font-weight: bold;
+    }
+    
+    /* Filter Section */
+    /* Container for filters */
+    .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    /* Vendor Filter Styling */
+    .vendor-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+    
+    .vendor-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    }
+    
+    .vendor-search input[type="text"] {
+    padding: 8px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    }
+    
+    .vendor-search button {
+    background-color: var(--purple);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .vendor-search button:hover {
+    background-color: var(--gray);
+    color: #7a35c5;
+    }
+    
+    /* Date Filter Styling */
+    .date-filter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    }
+    
+    .date-filter input[type="text"] {
+    padding: 8px;
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    }
+    
+    /* Dropdown Menu for Date Filter */
+    .date-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 100;
+    width: 245px;
+    }
+    
+    .date-dropdown.active {
+    display: block;
+    }
+    
+    .date-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    color: var(--purple);
+    cursor: pointer;
+    }
+    
+    .date-dropdown button:hover {
+    background-color: var(--purple);
+    color: white;
+    }
+    
+    /* Custom Date Range */
+    .custom-date-range {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    }
+    
+    .custom-date-range input {
+    padding: 8px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    width: 100px;
+    }
+    
+    .date-dropdown .apply-btn,
+    .date-dropdown .cancel-btn {
+    padding: 8px 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    }
+    
+    .date-dropdown .apply-btn {
+    background-color: var(--purple);
+    color: white;
+    }
+    
+    .date-dropdown .cancel-btn {
+    background-color: red;
+    color: white;
+    }
+    
+    .date-dropdown .cancel-btn:hover {
+    background-color: rgb(223, 16, 16); 
+    color: #fff;
+    }
+    
+    /* Results Container Styling */
+    .results-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #EDEDDA; 
+    border: none; 
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1650px; 
+    height: 550px; 
+    box-sizing: border-box;
+    margin: 5px auto; 
+    overflow-y: auto;
+    box-shadow: none; 
+    margin-bottom: 20px;
+    }
+    
+    .modal {
+    background-color: rgba(0, 0, 0, 0.4); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; 
+    }
+    
+    .modal-content {
+    background-color: rgba(255, 255, 255, 0.9) !important; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; 
+    height: auto; 
+    max-height: 150px;
+    width: 100%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    
+    .modal h2 {
+    margin-bottom: 10px;
+    }
+    
+    .modal p {
+    margin-bottom: 20px;
+    }
+    
+    .buttons {
+    display: flex;               
+    justify-content: center;    
+    margin-top: 20px;           
+    }
+    
+    button {
+    padding: 10px 20px;         
+    margin: 0 5px;              
+    background-color: #7a35c5;  
+    color: #fff;                 
+    border: none;               
+    border-radius: 5px;         
+    cursor: pointer;            
+    display: flex;               
+    justify-content: center;   
+    align-items: center;         
+    }
+    
+    button:hover {
+    background-color: #512DA8;   
+    }
+    
+    .close {
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px; 
+    width: 30px; 
+    height: 30px;
+    }
+    
+    /*Log-out*/
+    .modal {
+    background-color: rgba(0, 0, 0, 0.4); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; 
+    }
+    
+    .modal-content {
+    background-color: rgba(255, 255, 255, 0.9) !important; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; 
+    height: auto; 
+    max-height: 150px;
+    width: 100%;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    
+    
+    .modal h2 {
+    margin-bottom: 10px;
+    }
+    
+    .modal p {
+    margin-bottom: 20px;
+    }
+    
+    .buttons {
+    display: flex;               
+    justify-content: center;    
+    margin-top: 20px;           
+    }
+    
+    button {
+    padding: 10px 20px;         
+    margin: 0 5px;              
+    background-color: #7a35c5;  
+    color: #fff;                 
+    border: none;               
+    border-radius: 5px;         
+    cursor: pointer;            
+    display: flex;               
+    justify-content: center;   
+    align-items: center;         
+    }
+    
+    button:hover {
+    background-color: #512DA8;   
+    }
+    
+    .close {
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px; 
+    width: 30px; 
+    height: 30px;
+    }
+    
+    
+    @media screen and (max-width: 768px) {
+        .container {
+        flex-direction: column;
+        }
+    
+        .navigation {
+        width: 100%;
+        height: auto;
+        position: relative;
+        }
+    
+        .navigation ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        }
+    
+        .navigation ul li a {
+        padding: 10px;
+        text-align: center;
+        }
+    
+        .main {
+        padding: 15px;
+        }
+    
+        .cardBox {
+        flex-direction: column;
+        }
+    
+        .card {
+        width: 100%;
+        margin-bottom: 10px;
+        }
+    
+        @media screen and (max-width: 480px) {
+            .topbar .user img {
+            width: 30px;
+            height: 30px;
+            }
+        
+            .content h2 {
+            font-size: 18px;
+            }
+        
+            .card .numbers {
+            font-size: 20px;
+            }
+        
+            .card .iconBx ion-icon {
+            font-size: 24px;
+            }
+        }  
+    }

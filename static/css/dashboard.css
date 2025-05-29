@@ -1,0 +1,593 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+:root {
+  --purple: #7a35c5;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background-color: var(--gray);
+  color: var(--black1);
+}
+
+.container {
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; 
+}
+
+/* Top Bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--white);
+  padding: 10px 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.toggle {
+  cursor: pointer;
+  font-size: 1.5em; 
+  color: var(--black1);
+  margin-left: 10px; 
+}
+
+.logo img {
+  max-width: 100px; 
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  justify-content: center; 
+  transition: transform 0.3s ease;
+  transform: translateX(-100%); 
+  margin-right: -250px;
+}
+
+.navigation.show {
+  transform: translateX(0); 
+}
+
+.navigation ul {
+  display: flex; 
+  list-style: none;
+}
+
+.navigation ul li {
+  margin-left: 5px; 
+}
+
+.navigation ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px; 
+  color: var(--black1);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navigation ul li a:hover {
+  color: var(--purple);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--white);
+  overflow-y: auto;
+}
+
+.main {
+  flex-grow: 1; 
+  transition: margin-left 0.3s ease; 
+  padding: 20px; 
+}
+
+.main.expanded {
+  margin-left: 0; /* No left margin when navigation is hidden */
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Dashboard content */
+.content {
+  display: none;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+  color: var(--purple);
+}
+
+.cardBox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 150px;
+  background-color: var(--gray);
+  color: var(--black1);
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.card .numbers {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card .cardName {
+  font-size: 14px;
+  color: var(--black2);
+}
+
+.card .iconBx ion-icon {
+  font-size: 30px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid var(--gray);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+tbody tr:hover {
+  background-color: var(--gray);
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: var(--white);
+}
+
+.status.delivered {
+  background-color: green;
+}
+
+.status.pending {
+  background-color: orange;
+}
+
+.status.inProgress {
+  background-color: blue;
+}
+
+.status.return {
+  background-color: red;
+}
+
+/*Messages*/
+.messages-container {
+  width: 100%; /* Full width */
+  max-width: 600px; 
+  margin: 20px auto; /* Center with margin */
+  background: white; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  padding: 20px; 
+}
+
+h2 {
+  color: #7a35c5; 
+}
+
+.message {
+  border-bottom: 1px solid #eee; 
+  padding: 15px 0; 
+}
+
+.message:last-child {
+  border-bottom: none; 
+}
+
+.sender {
+  font-weight: bold; 
+  color: var(--black1); 
+}
+
+.time {
+  font-size: 12px; 
+  color: #888; 
+}
+
+.content {
+  margin-top: 5px; 
+  color: #555; 
+}
+
+/* Notification List */
+.notificationList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  overflow-y: auto;
+}
+
+.notification {
+  background-color: var(--gray);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.notification p {
+  color: var(--black1);
+  margin: 0;
+}
+
+.notification .time {
+  color: var(--black2);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+
+/* Reports Section */
+.content {
+  display: flex;
+  flex-direction: column; /* Stack the cards vertically */
+  gap: 20px; /* Add space between the cards */
+}
+
+.reports-container {
+  flex: 1; /* Allow reports section to grow */
+  padding: 20px; /* Inner padding */
+  background-color: var(--white); /* Background color */
+  border-radius: 8px; /* Rounded corners */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center; /* Center align items */
+  justify-content: space-between; /* Space between icon and content */
+}
+
+.card .icon {
+  font-size: 40px; /* Size of the icon */
+  color: var(--purple); /* Use the purple color from your theme */
+}
+
+.card h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 20px; /* Set font size for headings */
+  color: var(--black1); /* Dark text color */
+}
+
+.card .subtitle {
+  font-size: 14px; /* Subtitle font size */
+  color: var(--black2); /* Lighter color for the subtitle */
+}
+
+.card .value {
+  font-size: 24px; /* Large font size for values */
+  font-weight: bold; /* Bold text for emphasis */
+  color: var(--purple); /* Use the purple color from your theme */
+}
+
+.card .change {
+  font-size: 14px; /* Font size for percentage change */
+}
+
+.card .increase {
+  color: green; /* Color for increase */
+}
+
+.card .decrease {
+  color: red; /* Color for decrease */
+}
+
+/*Settings*/
+.settings-container {
+    display: flex;
+    flex-direction: column; 
+    flex: 1;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    width: 90%; /* Full width for responsiveness */
+}
+
+.sidebar {
+    width: 100%; /* Full width for sidebar */
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.content {
+    width: 100%; /* Full width for content */
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column; /* Stack profile items vertically */
+}
+
+.profile-image {
+    position: relative;
+    margin-bottom: 20px; /* Add some space below the image */
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.upload-btn, .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: -40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.profile-details {
+    flex-grow: 1;
+}
+
+.detail {
+    margin-bottom: 15px;
+}
+
+.detail span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.detail p {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*Logout*/
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .navigation {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .navigation ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .navigation ul li a {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .cardBox {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 14px;
+  }
+
+  .settings-container {
+    flex-direction: column; /* Stack settings vertically */
+    width: 90%; /* Use full width */
+  }
+
+  .sidebar {
+    width: 100%; /* Use full width */
+    padding: 10px; /* Adjust padding */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .topbar .user img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content h2 {
+    font-size: 18px;
+  }
+
+  .card .numbers {
+    font-size: 20px;
+  }
+
+  .card .iconBx ion-icon {
+    font-size: 24px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 12px;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,379 @@
+{% extends "admin.html" %}
+
+{% block content %}
+<div class="content" id="customers">
+    <!-- Header Section -->
+    <div class="customer-header">
+        <div class="title-container">
+            <h1 class="title_customer">Customer Management</h1>
+            <p class="subtitle">View and manage customer information</p>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item">
+                <span class="stat-value">{{ customers|length }}</span>
+                <span class="stat-label">Total Customers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">₱{{ '{:,.2f}'.format(customers|sum(attribute='total_spent')|float) }}</span>
+                <span class="stat-label">Total Revenue</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="customer-filter">
+        <div class="search-input">
+            <input type="text" id="searchInput" placeholder="Search by name or email">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <!-- Customer Table -->
+    <div class="customer-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>First Order</th>
+                    <th>Total Orders</th>
+                    <th>Total Spent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>
+                        <div class="customer-info">
+                            <div class="avatar">{{ customer.name[:2].upper() }}</div>
+                            <span class="customer-name">{{ customer.name }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="customer-email">{{ customer.email }}</span>
+                    </td>
+                    <td>
+                        <span class="order-date">
+                            {% if customer.first_order_date %}
+                                {{ customer.first_order_date.strftime('%d/%m/%Y') }}
+                            {% else %}
+                                <span class="no-orders">No orders yet</span>
+                            {% endif %}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="order-count">{{ customer.total_orders }}</span>
+                    </td>
+                    <td>
+                        <span class="total-spent">₱{{ '{:,.2f}'.format(customer.total_spent|float) }}</span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+:root {
+    --primary: #7a35c5;
+    --primary-light: #9355d5;
+    --primary-dark: #6025a5;
+    --primary-fade: rgba(122, 53, 197, 0.1);
+}
+
+/* Header Styles */
+.customer-header {
+    background: white;
+    padding: 24px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(122, 53, 197, 0.08);
+    border: 1px solid rgba(122, 53, 197, 0.1);
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title_customer {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title_customer::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--primary);
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Stats Section */
+.header-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-item {
+    background: var(--primary-fade);
+    padding: 12px 20px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.stat-value {
+    color: var(--primary);
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* Search Section */
+.customer-filter {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(122, 53, 197, 0.08);
+    border: 1px solid rgba(122, 53, 197, 0.1);
+    margin-bottom: 24px;
+}
+
+.search-input {
+    position: relative;
+    max-width: 400px;
+}
+
+.search-input input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.search-input input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(122, 53, 197, 0.1);
+}
+
+.search-input i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+}
+
+/* Table Container */
+.customer-table {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(122, 53, 197, 0.08);
+    border: 1px solid rgba(122, 53, 197, 0.1);
+    overflow: hidden; /* Keeps the rounded corners */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+/* Column Widths */
+th:nth-child(1), td:nth-child(1) { width: 25%; }  /* Customer Name */
+th:nth-child(2), td:nth-child(2) { width: 25%; }  /* Email */
+th:nth-child(3), td:nth-child(3) { width: 20%; }  /* First Order */
+th:nth-child(4), td:nth-child(4) { width: 15%; }  /* Total Orders */
+th:nth-child(5), td:nth-child(5) { width: 15%; }  /* Total Spent */
+
+/* Header Styles */
+thead {
+    background: #f8f9fa;
+}
+
+th {
+    padding: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4b5563;
+    border-bottom: 2px solid #e5e7eb;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Row Styles */
+tr {
+    transition: all 0.2s ease;
+}
+
+tr:hover {
+    background-color: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(122, 53, 197, 0.05);
+}
+
+td {
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+/* Customer Info Column */
+.customer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-fade);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+tr:hover .avatar {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(122, 53, 197, 0.15);
+}
+
+.customer-name {
+    font-weight: 500;
+    color: #111827;
+    font-size: 14px;
+}
+
+/* Email Column */
+.customer-email {
+    color: #6b7280;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.customer-email:hover {
+    color: var(--primary);
+}
+
+/* Date Column */
+.order-date {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: #f3f4f6;
+    border-radius: 20px;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.no-orders {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: #fee2e2;
+    border-radius: 20px;
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Order Count Column */
+.order-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    background: var(--primary-fade);
+    color: var(--primary);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Total Spent Column */
+.total-spent {
+    font-weight: 600;
+    color: #059669;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.total-spent::before {
+    content: '₱';
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    th:nth-child(3), 
+    td:nth-child(3) {
+        display: none; /* Hide First Order date */
+    }
+    
+    th:nth-child(1), td:nth-child(1) { width: 30%; }
+    th:nth-child(2), td:nth-child(2) { width: 35%; }
+    th:nth-child(4), td:nth-child(4) { width: 15%; }
+    th:nth-child(5), td:nth-child(5) { width: 20%; }
+}
+
+@media (max-width: 768px) {
+    .customer-table {
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 800px;
+    }
+
+    td, th {
+        padding: 12px;
+    }
+
+    .avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+</style>
+{% endblock %}

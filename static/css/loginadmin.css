@@ -1,0 +1,230 @@
+/* login.css */
+body {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Modern Background Pattern */
+.admin-login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(120deg, #ffffff 0%, #ffffff 100%),
+        radial-gradient(70% 80% at 50% 0%, #7a35c5 0%, transparent 100%),
+        radial-gradient(50% 60% at 100% 100%, #9d5ce6 0%, transparent 100%);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Card Styles */
+.admin-login-card {
+    background: rgba(122, 53, 197, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 48px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 24px 48px -12px rgba(122, 53, 197, 0.4),
+        0 4px 16px rgba(122, 53, 197, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.admin-login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.admin-login-header h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.admin-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+/* Glass Input Fields */
+.form-group input {
+    width: 100%;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 15px;
+    color: white;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 0 0 4px rgba(255, 255, 255, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Glass Button */
+.admin-login-btn {
+    width: 100%;
+    padding: 18px 24px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #7a35c5;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.admin-login-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 24px -8px rgba(0, 0, 0, 0.2),
+        0 4px 8px -4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login-btn:active {
+    transform: translateY(0);
+}
+
+/* Glass Alert Styles */
+.alert {
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.alert-danger {
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    color: #fecaca;
+}
+
+.alert-success {
+    background: rgba(22, 163, 74, 0.1);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+    color: #86efac;
+}
+
+/* Background Shapes */
+.background-shape {
+    position: absolute;
+    z-index: 0;
+}
+
+.shape-1 {
+    top: 10%;
+    right: 15%;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, rgba(122, 53, 197, 0.08), rgba(157, 92, 230, 0.08));
+    border-radius: 72px;
+    transform: rotate(-15deg);
+    animation: floatShape 20s infinite linear;
+}
+
+.shape-2 {
+    bottom: 10%;
+    left: 15%;
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(-45deg, rgba(122, 53, 197, 0.08), rgba(157, 92, 230, 0.08));
+    border-radius: 72px;
+    transform: rotate(15deg);
+    animation: floatShape 25s infinite linear reverse;
+}
+
+@keyframes floatShape {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    50% {
+        transform: rotate(180deg) translate(20px, 20px);
+    }
+    100% {
+        transform: rotate(360deg) translate(0, 0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .admin-login-card {
+        padding: 32px 24px;
+        border-radius: 24px;
+    }
+    
+    .admin-login-header h2 {
+        font-size: 28px;
+    }
+    
+    .form-group input {
+        padding: 16px 18px;
+        font-size: 15px;
+    }
+    
+    .admin-login-btn {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+}

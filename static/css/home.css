@@ -1,0 +1,48 @@
+.book-section .img {
+    position: relative;
+}
+
+.book-section .img .star {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.service{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .service .service-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0px 30px;
+  }
+  .service-container .service-card{
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  .service-container .service-card .icon i{
+    background-color: #f3f0fe;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 15px;
+    color: #7a35c5;
+  }
+  .service-container .service-card .service-content h5{
+    font-size: 14px;
+    color: #131428;
+  }
+  .service-card .service-content p{
+    color: #696a6e;
+    font-size: 10px;
+  }
